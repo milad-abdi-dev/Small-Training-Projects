@@ -1,5 +1,23 @@
+# Build folders
 bin/
 obj/
-/packages/
+
+# NuGet packages
+packages/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+*.iml
 riderModule.iml
-/_ReSharper.Caches/
+
+# ReSharper cache
+_ReSharper.Caches/
+*.DotSettings.user
+
+# User-specific files
+*.user
+*.suo
+
+# Logs
+*.log
