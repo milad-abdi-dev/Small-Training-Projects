@@ -42,7 +42,7 @@ orderService.ProcessOrder(order, rules);*/
 
 // -------- Product Filtering --------
 
-using Delegates.Product_Filtering;
+/*using Delegates.Product_Filtering;
 
 List<Product> products = new List<Product>
 {
@@ -60,4 +60,36 @@ foreach (Product product in filterProducts)
     Console.WriteLine(product.Price);
     Console.WriteLine(product.Stock);
     Console.WriteLine(product.Id);
+}*/
+
+// -------- Product Sorting --------
+using Delegates.Custom_Sorting;
+using Delegates.Product_Filtering;
+
+List<Product> products = new List<Product>
+{
+    Product.Create(1, "Egg", 2, 1000),
+    Product.Create(2, "Cheese", 15, 200),
+    Product.Create(3, "Pepperoni", 60, 100),
+    Product.Create(4, "Pineapple", 10, 50),
+            Product.Create(5, "Bread", 2, 1500),
+        Product.Create(6, "Milk", 2, 500),
+        Product.Create(7, "Butter", 12, 200),
+         Product.Create(8, "Sausage", 10, 100),
+         Product.Create(9, "Olives", 100, 50),
+};
+
+ProductSortService productSortService = new ProductSortService();
+// Senior level sorting using reusable comparison method from ProductComparisons class
+productSortService.Sort(products, ProductComparisons.ByPriceThenDescendingStock());
+/*productSortService.Sort(products, (p1, p2) =>
+{
+    int compareTo = p1.Price.CompareTo(p2.Price);
+    return compareTo == 0 ? p2.Stock.CompareTo(p1.Stock) : compareTo;
+});*/
+foreach (Product product in products)
+{
+    Console.WriteLine(product.Name);
+    Console.WriteLine(product.Price);
+    Console.WriteLine(product.Stock);
 }
