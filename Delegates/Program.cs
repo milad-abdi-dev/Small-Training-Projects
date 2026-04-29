@@ -63,6 +63,7 @@ foreach (Product product in filterProducts)
 }*/
 
 // -------- Product Sorting --------
+
 using Delegates.Custom_Sorting;
 using Delegates.Product_Filtering;
 
@@ -82,11 +83,11 @@ List<Product> products = new List<Product>
 ProductSortService productSortService = new ProductSortService();
 // Senior level sorting using reusable comparison method from ProductComparisons class
 productSortService.Sort(products, ProductComparisons.ByPriceThenDescendingStock());
-/*productSortService.Sort(products, (p1, p2) =>
+productSortService.Sort(products, (p1, p2) =>
 {
     int compareTo = p1.Price.CompareTo(p2.Price);
     return compareTo == 0 ? p2.Stock.CompareTo(p1.Stock) : compareTo;
-});*/
+});
 foreach (Product product in products)
 {
     Console.WriteLine(product.Name);

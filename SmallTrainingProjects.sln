@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManagementSystem", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegates", "Delegates\Delegates.csproj", "{A138B4DE-0063-4B8E-8B66-F4B70A92B651}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqTraining", "LinqTraining\LinqTraining.csproj", "{2F3F76C6-41C0-4E57-9F63-2FC2D0F8CE6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{A138B4DE-0063-4B8E-8B66-F4B70A92B651}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A138B4DE-0063-4B8E-8B66-F4B70A92B651}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A138B4DE-0063-4B8E-8B66-F4B70A92B651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F3F76C6-41C0-4E57-9F63-2FC2D0F8CE6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F3F76C6-41C0-4E57-9F63-2FC2D0F8CE6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F3F76C6-41C0-4E57-9F63-2FC2D0F8CE6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F3F76C6-41C0-4E57-9F63-2FC2D0F8CE6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
