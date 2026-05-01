@@ -34,7 +34,7 @@ var r1 = orders.GroupBy(o => o.CustomerId)
     .ToList();
     
 // Total sales per product
-orders
+var r2 = orders
     .SelectMany(o => o.Items)
     .GroupBy(i => i.ProductName)
     .Select(g => new
@@ -47,7 +47,7 @@ orders
 
 // Top 3 most sold products
 // Based on count of occurrences
-orders
+var r3 = orders
     .SelectMany(o => o.Items)
     .GroupBy(i => i.ProductName)
     .Select(g => new
@@ -55,6 +55,25 @@ orders
         ProductName = g.Key,
         SoldCount = g.Count(),
     })
-    .OrderByDescending(o => o.SoldCount)
+    .OrderByDescending(x => x.SoldCount)
     .Take(3)
+    .ToList();
+
+// Top 5 products with: 
+// - Total sales (Sum)
+// - Sold count
+// Only products with sales > 1000
+// Sorted by total sales
+var r4 = orders
+    .SelectMany(o => o.Items)
+    .GroupBy(i => i.ProductName)
+    .Select(g => new
+    {
+        ProductName = g.Key,
+        SoldCount = g.Count(),
+        TotalSpending = g.Sum(i => i.Price),
+    })
+    .Where(x => x.TotalSpending > 1000)
+    .OrderByDescending(x => x.TotalSpending)
+    .Take(5)
     .ToList();
