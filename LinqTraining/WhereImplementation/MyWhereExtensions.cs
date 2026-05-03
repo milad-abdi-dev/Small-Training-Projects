@@ -64,6 +64,15 @@ public static class MyWhereExtensions
         return false;
     }
 
+    public static bool MyAny<T>(
+        this IEnumerable<T> source)
+    {
+        ArgumentNullException.ThrowIfNull(source);
+        
+        using var enumerator = source.GetEnumerator();
+        return enumerator.MoveNext();
+    }
+
     public static bool MyAll<T>(
         this IEnumerable<T> source,
         Func<T, bool> predicate)
@@ -98,6 +107,22 @@ public static class MyWhereExtensions
             }
         }
         
+        return count;
+    }
+    
+    public static int MyCount<T>(this IEnumerable<T> source)
+    {
+        if (source == null)
+            throw new ArgumentNullException(nameof(source));
+
+        int count = 0;
+
+        using var enumerator = source.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
+            count++;
+        }
+
         return count;
     }
 }
